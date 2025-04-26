@@ -1,16 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+ 
+const nextConfig: NextConfig = {
   experimental: {
-    serverActions: true,
-  },
-  webpack(config: { resolve: { fallback: any; }; }) {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      v8: false,
-    };
-    return config;
-  },
+    ppr: 'incremental'
+  }
 };
-
-module.exports = nextConfig;
+ 
+export default nextConfig;
